@@ -33,15 +33,16 @@ app.use(express.json());
 
 app.post('/', async (req, res) => {
 	const eventData = JSON.stringify(req.body, 0, 2);
-	const e = JSON.parse(eventData);
-	if (e.event.type === EVENTS.CREATE_PULSE) {
-		console.log('Create');
-		// await createProject(payload);
-	}
-	if (e.event.type === EVENTS.UPDATE_COLUMN) {
-		console.log('Update');
-		// updateByPulseId();
-	}
+	console.log("data==>",eventData);
+	// const e = JSON.parse(eventData);
+	// if (e.event?.type === EVENTS.CREATE_PULSE) {
+	// 	console.log('Create',e.event);
+	// 	await createProject(payload);
+	// }
+	// if (e.event?.type === EVENTS.UPDATE_COLUMN) {
+	// 	console.log('Update');
+	// 	updateByPulseId();
+	// }
 	res.status(200).send(req.body);
 });
 

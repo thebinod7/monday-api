@@ -34,12 +34,13 @@ Install dependencies and run app
   npm start
 
   API exposed at http://localhost:7200/
+
+  Create tunnel with ngrok command: ngrok http 7200
+
 ```
 
 
 ## Tech Stack
-
-**Client:** React, Context API
 
 **Server:** Node, Express
 
