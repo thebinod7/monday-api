@@ -76,4 +76,8 @@ Go to http://localhost:7200/graphql and test APIs
 
 **Database:** MongoDB
 
+**ORM:** Mongoose
+
+**API Service:** GraphQL/REST
+
 **Code Formatter:** Prettier
