@@ -6,10 +6,10 @@ const schema = new Schema(
 	{
 		pulseId: { type: String, required: true },
 		name: { type: String, required: true },
-		status: { type: String, enum: ['Working on it', 'Stuck', 'Done'], default: 'Working on it' },
-		person: String,
-		dueDate: Date,
-		priority: { type: String, enum: ['Critical', 'High', 'Medium', 'Low'], default: 'Medium' }
+		status: { type: String, enum: ['Pending', 'Working on it', 'Stuck', 'Done'], default: 'Pending' },
+		person: [{ id: String, kind: String, _id: false }],
+		dueDate: Number,
+		priority: { type: String, enum: ['Critical', 'High', 'Medium', 'Low', 'None'], default: 'None' }
 	},
 	{ collection: 'projects', timestamps: true }
 );

@@ -19,9 +19,8 @@ module.exports = {
 
 	createProject: async args => {
 		try {
-			console.log('ARGS==>', args);
-			const { name, status, dueDate, person, priority } = args;
-			return ProjectModel.create({ name, status, dueDate, person, priority });
+			const { name, status, dueDate, person, priority, pulseId } = args;
+			return ProjectModel.create({ name, status, dueDate, person, priority, pulseId });
 		} catch (error) {
 			throw error;
 		}
@@ -35,9 +34,9 @@ module.exports = {
 		}
 	},
 
-	updateByPulseId: async (pulseId, payload) => {
+	upsertByPulseId: async (pulseId, payload) => {
 		try {
-			return ProjectModel.findOneAndUpdate({ pulseId }, payload);
+			return ProjectModel.findOneAndUpdate({ pulseId }, payload, { upsert: true });
 		} catch (error) {
 			throw error;
 		}

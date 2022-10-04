@@ -66,29 +66,6 @@ const mutation = new GraphQLObjectType({
 				dueDate: { type: GraphQLString },
 				status: { type: GraphQLString },
 				priority: { type: GraphQLString }
-				// status: {
-				// 	type: new GraphQLEnumType({
-				// 		name: 'ProjectStatus',
-				// 		values: {
-				// 			working_on_it: { value: 'Working on it' },
-				// 			stuck: { value: 'Stuck' },
-				// 			done: { value: 'Done' }
-				// 		}
-				// 	}),
-				// 	defaultValue: 'Working on it'
-				// },
-				// priority: {
-				// 	type: new GraphQLEnumType({
-				// 		name: 'ProjectPriority',
-				// 		values: {
-				// 			critical: { value: 'Critical' },
-				// 			high: { value: 'High' },
-				// 			medium: { value: 'Medium' },
-				// 			low: { value: 'Low' }
-				// 		}
-				// 	}),
-				// 	defaultValue: 'Medium'
-				// }
 			},
 			resolve(parent, args) {
 				return createProject(args);
@@ -107,19 +84,11 @@ const mutation = new GraphQLObjectType({
 			type: ProjectType,
 			args: {
 				id: { type: new GraphQLNonNull(GraphQLID) },
-				name: { type: GraphQLString },
-				status: {
-					type: new GraphQLEnumType({
-						name: 'ProjectUpdateStatus',
-						values: {
-							not_started: { value: 'Not Started' },
-							progress: { value: 'In Progress' },
-							completed: { value: 'Completed' }
-						}
-					}),
-					defaultValue: 'Not Started'
-				},
-				client: { type: GraphQLID }
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				person: { type: GraphQLString },
+				dueDate: { type: GraphQLString },
+				status: { type: GraphQLString },
+				priority: { type: GraphQLString }
 			},
 			resolve(parent, args) {
 				return updateProject(args);
