@@ -1,25 +1,6 @@
-const {
-	GraphQLObjectType,
-	GraphQLID,
-	GraphQLString,
-	GraphQLSchema,
-	GraphQLList,
-	GraphQLNonNull,
-	GraphQLEnumType
-} = require('graphql');
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLSchema, GraphQLList, GraphQLNonNull } = require('graphql');
 
 const { createProject, listProjects, deleteProject, updateProject, getProject } = require('../resolvers/project');
-
-// Client type blueprint
-const ClientType = new GraphQLObjectType({
-	name: 'Client',
-	fields: () => ({
-		id: { type: GraphQLID },
-		name: { type: GraphQLString },
-		email: { type: GraphQLString },
-		phone: { type: GraphQLString }
-	})
-});
 
 // Project type blueprint
 const ProjectType = new GraphQLObjectType({
@@ -61,6 +42,7 @@ const mutation = new GraphQLObjectType({
 		addProject: {
 			type: ProjectType,
 			args: {
+				pulseId: { type: new GraphQLNonNull(GraphQLString) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				person: { type: GraphQLString },
 				dueDate: { type: GraphQLString },
@@ -85,7 +67,6 @@ const mutation = new GraphQLObjectType({
 			args: {
 				id: { type: new GraphQLNonNull(GraphQLID) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
-				person: { type: GraphQLString },
 				dueDate: { type: GraphQLString },
 				status: { type: GraphQLString },
 				priority: { type: GraphQLString }

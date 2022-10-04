@@ -1,17 +1,17 @@
-
 # Monday APP
 
 Project management module
+
 ## Environment Variables
 
 To run this project, add .env file in project root directory and add following variables
-
 
 ```
     DB_URL=mongodb://localhost:27017/monday_db
     PORT=7200
 
 ```
+
 ## Run Locally
 
 Clone the project
@@ -39,6 +39,36 @@ Install dependencies and run app
 
 ```
 
+## GraphQL Query and Mutations
+
+Go to http://localhost:7200/graphql and test APIs
+
+```
+    // Create project
+    mutation {
+        addProject(name:"projec1", pulseId:"123", status:"Working on it", dueDate: "1664683108", priority:"High" ) {
+            id
+        }
+    }
+
+    // Get project
+    query {
+        getProject(id:"633b9c1f923eee9642eae3e9") { name, dueDate, status, priority }
+    }
+
+    // Update project
+    mutation {
+        updateProject(id: "633ba8b7e661a75501cf6322", name:"test", status:"Working on it", dueDate: "1664683108", priority:"High" ) {
+            id
+        }
+    }
+
+    // List projects
+    query {
+        listProjects{name,status,priority,dueDate}
+    }
+
+```
 
 ## Tech Stack
 
@@ -46,4 +76,4 @@ Install dependencies and run app
 
 **Database:** MongoDB
 
-**Code Formatter:** Prettier 
+**Code Formatter:** Prettier
