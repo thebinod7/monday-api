@@ -70,6 +70,17 @@ Go to http://localhost:7200/graphql and test APIs
 
 ```
 
+## Documentation
+
+Project demo and solution doc
+
+Demo video:
+https://drive.google.com/file/d/12VayF0yKzL__j1ZJ3rx37Hufur9lG2o5/view?usp=sharing
+
+Solution process doc:
+
+https://docs.google.com/document/d/1Vxgz5nij560JlByzwkAu7cgaLJNqKqCdPxRGJKZ24Jc/edit?usp=sharing
+
 ## Tech Stack
 
 **Server:** Node, Express
