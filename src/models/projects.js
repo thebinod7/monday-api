@@ -4,12 +4,9 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema(
 	{
-		pulseId: { type: String, required: true },
 		name: { type: String, required: true },
 		status: { type: String, enum: ['Pending', 'Working on it', 'Stuck', 'Done'], default: 'Pending' },
-		person: [{ id: String, kind: String, _id: false }],
-		dueDate: Number,
-		priority: { type: String, enum: ['Critical', 'High', 'Medium', 'Low', 'None'], default: 'None' }
+		description: String
 	},
 	{ collection: 'projects', timestamps: true }
 );

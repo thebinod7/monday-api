@@ -9,9 +9,7 @@ const ProjectType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
 		status: { type: GraphQLString },
-		person: { type: GraphQLString },
-		priority: { type: GraphQLString },
-		dueDate: { type: GraphQLString }
+		description: { type: GraphQLString }
 	})
 });
 
@@ -42,12 +40,9 @@ const mutation = new GraphQLObjectType({
 		addProject: {
 			type: ProjectType,
 			args: {
-				pulseId: { type: new GraphQLNonNull(GraphQLString) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
-				person: { type: GraphQLString },
-				dueDate: { type: GraphQLString },
 				status: { type: GraphQLString },
-				priority: { type: GraphQLString }
+				description: { type: GraphQLString }
 			},
 			resolve(parent, args) {
 				return createProject(args);
@@ -67,9 +62,8 @@ const mutation = new GraphQLObjectType({
 			args: {
 				id: { type: new GraphQLNonNull(GraphQLID) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
-				dueDate: { type: GraphQLString },
 				status: { type: GraphQLString },
-				priority: { type: GraphQLString }
+				description: { type: GraphQLString }
 			},
 			resolve(parent, args) {
 				return updateProject(args);

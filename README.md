@@ -56,26 +56,26 @@ Go to http://localhost:7200/graphql and test APIs
 ```
     // Create project
     mutation {
-        addProject(name:"projec1", pulseId:"123", status:"Working on it", dueDate: "1664683108", priority:"High" ) {
+        addProject(name:"projec1", status:"Working on it", description: "test description" ) {
             id
         }
     }
 
     // Get project
     query {
-        getProject(id:"633b9c1f923eee9642eae3e9") { name, dueDate, status, priority }
+        getProject(id:"633b9c1f923eee9642eae3e9") { name, status, description }
     }
 
     // Update project
     mutation {
-        updateProject(id: "633ba8b7e661a75501cf6322", name:"test", status:"Working on it", dueDate: "1664683108", priority:"High" ) {
+        updateProject(id: "633ba8b7e661a75501cf6322", name:"test", status:"Working on it", description: "test description" ) {
             id
         }
     }
 
     // List projects
     query {
-        listProjects{name,status,priority,dueDate}
+        listProjects{name,status,description}
     }
 
 ```

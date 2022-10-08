@@ -19,8 +19,8 @@ module.exports = {
 
 	createProject: async args => {
 		try {
-			const { name, status, dueDate, person, priority, pulseId } = args;
-			return ProjectModel.create({ name, status, dueDate, person, priority, pulseId });
+			const { name, status, description } = args;
+			return ProjectModel.create({ name, status, description });
 		} catch (error) {
 			throw error;
 		}
