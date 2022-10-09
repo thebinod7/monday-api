@@ -15,3 +15,8 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
+.inputField {
+  padding: 5px;
+  width: 430px;
+}

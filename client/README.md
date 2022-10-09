@@ -12,9 +12,7 @@ Go to project-root => client directory => Add .env => Paste following code
 
 `TUNNEL_SUBDOMAIN=item-view-10042770`
 
-`REACT_APP_API_SERVER=http://localhost:7200`
-
-`REACT_APP_API_API_TOKEN=YOUR_TOKEN`
+`REACT_APP_MONDAY_TOKEN=YOUR_TOKEN`
 
 ## Run and Upload Project Build
 
@@ -23,8 +21,6 @@ Go to project root directory
 ```bash
   cd client
   npm install
-  npm start
-  ngrok http 7200 (It will provide https URL)
+  npm run build
 ```
-
-Update `REACT_APP_API_SERVER` inside `.env` file with ngrok(https) URL then build and upload to monday platform
+ Create build.zip and upload to upload to monday app
