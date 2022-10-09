@@ -19,8 +19,8 @@ module.exports = {
 
 	createProject: async args => {
 		try {
-			const { columnId, name, status, description } = args;
-			return ProjectModel.create({ columnId, name, status, description });
+			const { rowId, name, status, description } = args;
+			return ProjectModel.create({ rowId, name, status, description });
 		} catch (error) {
 			throw error;
 		}
@@ -42,10 +42,10 @@ module.exports = {
 		}
 	},
 
-	upsertByColumnId: async args => {
+	upsertByrowId: async args => {
 		try {
-			const { columnId, ...rest } = args;
-			return ProjectModel.findOneAndUpdate({ columnId }, rest, { upsert: true });
+			const { rowId, ...rest } = args;
+			return ProjectModel.findOneAndUpdate({ rowId }, rest, { upsert: true });
 		} catch (error) {
 			throw error;
 		}

@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-item {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

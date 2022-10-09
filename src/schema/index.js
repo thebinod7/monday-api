@@ -6,7 +6,7 @@ const {
 	deleteProject,
 	updateProject,
 	getProject,
-	upsertByColumnId
+	upsertByrowId
 } = require('../resolvers/project');
 
 // Project type blueprint
@@ -14,7 +14,7 @@ const ProjectType = new GraphQLObjectType({
 	name: 'Project',
 	fields: () => ({
 		id: { type: GraphQLID },
-		columnId: { type: GraphQLID },
+		rowId: { type: GraphQLID },
 		name: { type: GraphQLString },
 		status: { type: GraphQLString },
 		description: { type: GraphQLString }
@@ -48,7 +48,7 @@ const mutation = new GraphQLObjectType({
 		addProject: {
 			type: ProjectType,
 			args: {
-				columnId: { type: new GraphQLNonNull(GraphQLString) },
+				rowId: { type: new GraphQLNonNull(GraphQLString) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				status: { type: GraphQLString },
 				description: { type: GraphQLString }
@@ -60,13 +60,13 @@ const mutation = new GraphQLObjectType({
 		addOrUpdate: {
 			type: ProjectType,
 			args: {
-				columnId: { type: new GraphQLNonNull(GraphQLString) },
+				rowId: { type: new GraphQLNonNull(GraphQLString) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				status: { type: GraphQLString },
 				description: { type: GraphQLString }
 			},
 			resolve(parent, args) {
-				return upsertByColumnId(args);
+				return upsertByrowId(args);
 			}
 		},
 		deleteProject: {
@@ -82,7 +82,7 @@ const mutation = new GraphQLObjectType({
 			type: ProjectType,
 			args: {
 				id: { type: new GraphQLNonNull(GraphQLID) },
-				columnId: { type: new GraphQLNonNull(GraphQLString) },
+				rowId: { type: new GraphQLNonNull(GraphQLString) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				status: { type: GraphQLString },
 				description: { type: GraphQLString }
