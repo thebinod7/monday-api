@@ -4,7 +4,7 @@ Monday board view details app
 
 ## Environment Variables
 
-Go to project-root => clien directory => Add .env => Paste following code
+Go to project-root => client directory => Add .env => Paste following code
 
 `PORT=8301`
 
@@ -16,7 +16,7 @@ Go to project-root => clien directory => Add .env => Paste following code
 
 `REACT_APP_API_API_TOKEN=YOUR_TOKEN`
 
-## Run Project
+## Run and Upload Project Build
 
 Go to project root directory
 
@@ -24,7 +24,7 @@ Go to project root directory
   cd client
   npm install
   npm start
-  ngrok http 7200
+  ngrok http 7200 (It will provide https URL)
 ```
 
-Update `REACT_APP_API_SERVER` in .env then build and upload
+Update `REACT_APP_API_SERVER` in .env with ngrok(https) URL then build and upload
