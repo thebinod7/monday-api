@@ -44,7 +44,7 @@ Install dependencies and run app
 Project demo and solution doc
 
 Demo video:
-https://drive.google.com/file/d/1Dj5O8EVEOdg7IiG3yg3ruZkEg_xPdqbO/view?usp=sharing
+https://drive.google.com/file/d/1sF8iwb8OX8XF4T5aVOQ3jYd0S3tj64YK/view?usp=sharing
 
 Solution process doc:
 https://docs.google.com/document/d/1Vxgz5nij560JlByzwkAu7cgaLJNqKqCdPxRGJKZ24Jc/edit?usp=sharing
