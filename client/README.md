@@ -27,4 +27,4 @@ Go to project root directory
   ngrok http 7200 (It will provide https URL)
 ```
 
-Update `REACT_APP_API_SERVER` in .env with ngrok(https) URL then build and upload
+Update `REACT_APP_API_SERVER` inside `.env` file with ngrok(https) URL then build and upload to monday platform
