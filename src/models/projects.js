@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const schema = new Schema(
 	{
 		name: { type: String, required: true },
+		columnId: { type: String, required: true, unique: true },
 		status: { type: String, enum: ['Pending', 'Working on it', 'Stuck', 'Done'], default: 'Pending' },
 		description: String
 	},

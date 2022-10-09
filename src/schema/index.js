@@ -1,12 +1,20 @@
 const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLSchema, GraphQLList, GraphQLNonNull } = require('graphql');
 
-const { createProject, listProjects, deleteProject, updateProject, getProject } = require('../resolvers/project');
+const {
+	createProject,
+	listProjects,
+	deleteProject,
+	updateProject,
+	getProject,
+	upsertByColumnId
+} = require('../resolvers/project');
 
 // Project type blueprint
 const ProjectType = new GraphQLObjectType({
 	name: 'Project',
 	fields: () => ({
 		id: { type: GraphQLID },
+		columnId: { type: GraphQLID },
 		name: { type: GraphQLString },
 		status: { type: GraphQLString },
 		description: { type: GraphQLString }
@@ -40,12 +48,25 @@ const mutation = new GraphQLObjectType({
 		addProject: {
 			type: ProjectType,
 			args: {
+				columnId: { type: new GraphQLNonNull(GraphQLString) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				status: { type: GraphQLString },
 				description: { type: GraphQLString }
 			},
 			resolve(parent, args) {
 				return createProject(args);
+			}
+		},
+		addOrUpdate: {
+			type: ProjectType,
+			args: {
+				columnId: { type: new GraphQLNonNull(GraphQLString) },
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				status: { type: GraphQLString },
+				description: { type: GraphQLString }
+			},
+			resolve(parent, args) {
+				return upsertByColumnId(args);
 			}
 		},
 		deleteProject: {
@@ -61,6 +82,7 @@ const mutation = new GraphQLObjectType({
 			type: ProjectType,
 			args: {
 				id: { type: new GraphQLNonNull(GraphQLID) },
+				columnId: { type: new GraphQLNonNull(GraphQLString) },
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				status: { type: GraphQLString },
 				description: { type: GraphQLString }

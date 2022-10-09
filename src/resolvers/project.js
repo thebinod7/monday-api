@@ -19,8 +19,8 @@ module.exports = {
 
 	createProject: async args => {
 		try {
-			const { name, status, description } = args;
-			return ProjectModel.create({ name, status, description });
+			const { columnId, name, status, description } = args;
+			return ProjectModel.create({ columnId, name, status, description });
 		} catch (error) {
 			throw error;
 		}
@@ -37,6 +37,15 @@ module.exports = {
 	upsertByPulseId: async (pulseId, payload) => {
 		try {
 			return ProjectModel.findOneAndUpdate({ pulseId }, payload, { upsert: true });
+		} catch (error) {
+			throw error;
+		}
+	},
+
+	upsertByColumnId: async args => {
+		try {
+			const { columnId, ...rest } = args;
+			return ProjectModel.findOneAndUpdate({ columnId }, rest, { upsert: true });
 		} catch (error) {
 			throw error;
 		}

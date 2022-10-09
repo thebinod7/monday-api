@@ -56,7 +56,14 @@ Go to http://localhost:7200/graphql and test APIs
 ```
     // Create project
     mutation {
-        addProject(name:"projec1", status:"Working on it", description: "test description" ) {
+        addProject(columnId: "123", name:"projec1", status:"Working on it", description: "test description" ) {
+            id
+        }
+    }
+
+    // Add or update project by columnId
+    mutation {
+        addOrUpdate(columnId: "101", name:"project 1", status:"Working on it", description: "test description" ) {
             id
         }
     }
@@ -68,14 +75,14 @@ Go to http://localhost:7200/graphql and test APIs
 
     // Update project
     mutation {
-        updateProject(id: "633ba8b7e661a75501cf6322", name:"test", status:"Working on it", description: "test description" ) {
+        updateProject(id: "633ba8b7e661a75501cf6322", columnId: "456", name:"updated item", status:"Done", description: "this is test" ) {
             id
         }
     }
 
     // List projects
     query {
-        listProjects{name,status,description}
+        listProjects{columnId, name,status,description}
     }
 
 ```
