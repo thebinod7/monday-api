@@ -26,4 +26,4 @@ Go to project root directory
   npm run build
 ```
 
-Create build.zip and upload to upload to monday app
+Create build.zip and upload to monday app
