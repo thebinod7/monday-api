@@ -14,6 +14,8 @@ Go to project-root => client directory => Add .env => Paste following code
 
 `REACT_APP_MONDAY_TOKEN=YOUR_TOKEN`
 
+`REACT_APP_BACKEND_SERVER=HTTPS_BACKEND_URL(ngrok)`
+
 ## Run and Upload Project Build
 
 Go to project root directory
@@ -23,4 +25,5 @@ Go to project root directory
   npm install
   npm run build
 ```
- Create build.zip and upload to upload to monday app
+
+Create build.zip and upload to upload to monday app

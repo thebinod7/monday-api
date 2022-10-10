@@ -37,6 +37,8 @@ Install dependencies and run app
 
   Create tunnel with ngrok command: ngrok http 7200
 
+  Save ngrok https URL inside client folder => `.env` file
+
 ```
 
 ## Documentation
