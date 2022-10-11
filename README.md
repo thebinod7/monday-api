@@ -91,7 +91,11 @@ Go to http://localhost:7200/graphql and test APIs
 
 ## Tech Stack
 
+**Client:** React
+
 **Server:** Node, Express
+
+**Library:** Monday SDK JS
 
 **Database:** MongoDB
 
